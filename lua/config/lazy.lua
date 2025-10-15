@@ -53,7 +53,13 @@ require("lazy").setup({
     plugins, opts
   },
 })
-
+require('render-markdown').setup({
+  heading = {
+    width = { 'block'},
+    sign = true,
+    left_margin = 10,
+  },
+})
 require("catppuccin").setup()
 vim.cmd.colorscheme "catppuccin-mocha" --catppuccin-frappe" --"tokyonight" "catppuccin" -- catppuccin-latte, catppuccin-macchiato 
 
