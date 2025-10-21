@@ -11,7 +11,7 @@ return {
           heading = {
             width = { 'block'},
             sign = true,
-            left_margin = 10,
+            left_margin = 20,
           },
         })
       end,
