@@ -10,11 +10,11 @@ vim.opt.clipboard="unnamed,unnamedplus"
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set('n', '<leader>o', 'o<Esc>', { noremap = true, silent = true }) 
+vim.keymap.set('n', '<leader>o', 'o<Esc>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>O', 'O<Esc>', { noremap = true, silent = true }) 
+
 vim.keymap.set('n', 'ù', '<CR>', { buffer= true, noremap = true, silent = true }) 
 vim.keymap.set('i', 'ù', '<CR>', { noremap = true, silent = true }) 
-
 vim.keymap.set('n', '<A-ù>', '<BS>', { noremap = true, silent = true }) 
 vim.keymap.set('i', '<A-ù>', '<BS>', { noremap = true, silent = true }) 
 
