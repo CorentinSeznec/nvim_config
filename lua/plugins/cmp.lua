@@ -18,7 +18,8 @@ return {
       local t = ls.text_node
       local i = ls.insert_node
       local d = ls.dynamic_node
-      local f = ls.function_node
+      local f = ls.function_no      
+      -- Ctrl E pour alterner entre les différents choix du noeudde
       local extras = require("luasnip.extras")
       local rep = extras.rep
       local cmp = require'cmp'
@@ -27,9 +28,28 @@ return {
       local ls = require("luasnip")
 
       --      vim.keymap.set({"i"}, "<CR>", function() ls.expand() end, {silent = true})
-      vim.keymap.set({"i", "s"}, "<Tab>", function() ls.jump( 1) end, {silent = true})
-      vim.keymap.set({"i", "s"}, "<S-Tab>", function() ls.jump(-1) end, {silent = true})
+      -- vim.keymap.set({"i", "s"}, "<Tab>", function() ls.jump( 1) end, {silent = true})
+      vim.keymap.set({ "i", "s" }, "<Tab>", function()
+        if ls.expand_or_jumpable() then
+          ls.expand_or_jump()
+        else
+          -- fallback : laisse Tab faire ce qu'il ferait normalement
+          local key = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
+          vim.api.nvim_feedkeys(key, "n", false)
+        end
+      end, { silent = true })
 
+      -- vim.keymap.set({"i", "s"}, "<S-Tab>", function() ls.jump(-1) end, {silent = true})
+      vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+        if ls.jumpable(-1) then
+          ls.jump(-1)
+        else
+          local key = vim.api.nvim_replace_termcodes("<S-Tab>", true, false, true)
+          vim.api.nvim_feedkeys(key, "n", false)
+        end
+      end, { silent = true })
+
+      -- Ctrl E pour alterner entre les différents choix du noeud
       vim.keymap.set({"i", "s"}, "<C-E>", function()
         if ls.choice_active() then
           ls.change_choice(1)
@@ -42,7 +62,7 @@ return {
         t({"", "After jumping forward once, cursor is here ->"}), i(2),
         t({"", "After jumping once more, the snippet is exited there ->"}), i(0),
         }),
-        s("aaa", {
+        s("def", {
           t("def "), i(1, "function_name"), t("("), i(2, "args"), t(", "), i(3, "arg2"), t({ ")", "" }),
           t("  "), i(0),
        }),
