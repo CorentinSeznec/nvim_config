@@ -1,11 +1,11 @@
 return {
-    "hachy/eva01.vim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- Applique le thème Eva-01
-      vim.cmd.colorscheme "eva01"
-    end,
+--     "hachy/eva01.vim",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--       -- Applique le thème Eva-01
+--       vim.cmd.colorscheme "eva01"
+--     end,
 }
 
 --   "catppuccin/nvim", 
