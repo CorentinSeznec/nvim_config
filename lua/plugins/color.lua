@@ -1,4 +1,17 @@
 return {
+  {
+    "Mofiqul/dracula.nvim",
+    lazy = false,       -- charge le thème au démarrage
+    priority = 1000,    -- s'assure que le thème se charge avant les autres plugins
+    config = function()
+      -- Applique le thème Dracula
+      vim.cmd.colorscheme "dracula"
+
+      -- Facultatif : garder le fond du terminal intact
+      vim.cmd([[hi Normal guibg=NONE]])
+    end,
+  },
+
 --     "hachy/eva01.vim",
 --     lazy = false,
 --     priority = 1000,
