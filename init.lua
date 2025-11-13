@@ -2,6 +2,10 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+
+-- nécessite xclip pour fonctionner, sudo apt install xclip
+-- Sans sudo, c'est pas simple, il faut compiler soi meme mais nécessite
+-- des outils installable avec sudo
 vim.opt.clipboard="unnamed,unnamedplus"
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
