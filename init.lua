@@ -14,6 +14,7 @@ vim.opt.clipboard="unnamed,unnamedplus"
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Open a line in normal mode 
 vim.keymap.set('n', '<leader>o', 'o<Esc>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>O', 'O<Esc>', { noremap = true, silent = true }) 
 
@@ -21,6 +22,9 @@ vim.keymap.set('n', 'ù', '<CR>', { buffer= true, noremap = true, silent = true 
 vim.keymap.set('i', 'ù', '<CR>', { noremap = true, silent = true }) 
 vim.keymap.set('n', '<A-ù>', '<BS>', { noremap = true, silent = true }) 
 vim.keymap.set('i', '<A-ù>', '<BS>', { noremap = true, silent = true }) 
+
+ -- Remap (Fn) f1 for ctrl 6 to alternate with alternative buffer
+vim.keymap.set('n', '<F1>', '<C-6>')
 
 vim.keymap.set('n', '<A-*>', '#', { noremap = true, silent = true })
 vim.wo.number = true 
